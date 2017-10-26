@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+
+development:
+  <<: *default
+  database: is_it_friday_somewhere_development
+
+test:
+  <<: *default
+  database: is_it_friday_somewhere_test
+
+production:
+  <<: *default
+  database: is_it_friday_somewhere_production
+  user: is_it_friday_somewhere
+  password: <%= ENV['IS_IT_FRIDAY_SOMEWHERE_DATABASE_PASSWORD'] %>
