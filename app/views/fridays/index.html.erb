@@ -1,8 +1,16 @@
 <div class="friday <%= @is_it_friday_somewhere ? 'yes' : 'no' %>">
-  <%= @is_it_friday_somewhere ? 'Yes.' : 'No.' %>
+  <%= @is_it_friday_somewhere ? 'Yes' : 'No' %>
 </div>
 <footer>
-  (Don't worry, it's always Friday somewhere!)
+  <% if @is_it_friday_somewhere %>
+    It's always Friday somewhere!
+    <br/>
+    (But <a href="http://www.isit5oclocksomewhere.com/">is it 5 o'clock somewhere</a>?)
+  <% else %>
+    Don't worry, it's always Friday somewhere!
+    <br/>
+    (But maybe <a href="http://www.isit5oclocksomewhere.com/">it's 5 o'clock somewhere</a>?)
+  <% end %>
 </footer>
 
 
